@@ -2,7 +2,6 @@ import java.io.File;
 import java.util.Scanner;
 import java.lang.Character;
 import java.util.HashMap;
-import java.util.Map;
 
 class Day1 {
     public int lineNumberOne(String line) {
