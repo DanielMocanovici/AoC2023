@@ -1,6 +1,25 @@
 class Day1:
 
-    def lineNumberOne(self, line: str, digitMap) -> int:
+    def lineNumberOne(self, line: str) -> int:
+        start = 0
+        end = len(line) - 1
+        sum = ""
+
+        while start <= end:
+            if line[start].isnumeric():
+                sum += line[start]
+                break
+            start += 1
+        
+        while end >= 0:
+            if line[end].isnumeric():
+                sum += line[end]
+                break
+            end -= 1
+
+        return int(sum)
+    
+    def lineNumberTwo(self, line: str, digitMap) -> int:
         start = 0
         end = len(line) - 1
         sum = ""
@@ -34,26 +53,27 @@ class Day1:
                 break
             end -= 1
 
-        print(sum)
         return int(sum)
-    
-    def lineNumberTwo(self, line: str) -> int:
-        start = 0
-        end = len(line) - 1
-        sum = ""
-        
-        return 0
 
     def readFile(self, file):
-        digitalMap = {"one" : "1", "two" : "2", "three" : "3", "four" : "4", "five" : "5", "six" : "6", "seven" : "7", "eight" : "8", "nine" : "9"} 
+        digitalMap = {
+            "one" : "1", 
+            "two" : "2", 
+            "three" : "3", 
+            "four" : "4", 
+            "five" : "5", 
+            "six" : "6", 
+            "seven" : "7", 
+            "eight" : "8", 
+            "nine" : "9"
+            } 
         sum = 0 
         for line in file:
-            sum += self.lineNumberOne(line, digitMap=digitalMap) 
+            sum += self.lineNumberTwo(line, digitMap=digitalMap) 
         return sum
-
-# One, Two, Three, Four, Five, Six, Seven, Eight, Nine
 
 
 if __name__ == '__main__':
-    currentFile = open(r"C:\Users\User\Desktop\MyGit\AdventCodeCalendar\Day1.txt", "r")
+    currentFile = open(r"C:\Users\User\Desktop\MyGit\AdventCodeCalendar\Day1\Day1.txt", "r")
     print(Day1().readFile(currentFile))
+    currentFile.close()

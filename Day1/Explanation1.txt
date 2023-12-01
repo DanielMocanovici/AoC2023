@@ -1,0 +1,16 @@
+In this problem we are given a file of lines where we can encounter with 2 different problems:
+
+1.In the first problem, we are asked to extract the first and last character of the line which are digits and then get the integer 
+    value of the 2 integers put together: e.g. "1something9somethingelse" results in the integer number 19. We are asked to sum up 
+    all integers from each line and return the total sum.
+
+2. In the second case we also need to conside substrings that are alpha numeric. e.g. "two12something5" will result in the integer 25.
+
+Solutions:
+1. In the first case, we could go through each individual line twice (once from the start and once from the end) and when we 
+    encounter a string digit, we can just append it to an empty-initialized string. We then return the int value of the resulting
+    string and in a different function we collect the sum for all lines.
+2. In the second case, we should define a dictionary which contains a map from the alphaNumeric digit to its String digit counterPart
+    we would then check every substring of the current char in the line (we only need to check substrings of length 3,4 or 5). If
+    the substring is in the dictionary, we can use the value to the corresponding key and append it to the empty-initialized string.
+    Everything else stays the same.
